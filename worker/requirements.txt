@@ -1,0 +1,7 @@
+redis==5.2.1
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+rembg==2.0.61
+boto3==1.35.81
+python-dotenv==1.0.1
+requests==2.32.3
