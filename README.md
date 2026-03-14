@@ -42,9 +42,11 @@ This project is built as a **modular distributed system** with clear service bou
 - Job status polling
 - User image history
 - Download-ready output URLs
+- Frontend now includes login/signup UI, token persistence, job polling, and upload history panel
 
 ### Platform capabilities
 - Non-blocking API via Redis-backed worker queue
+- Worker dependency includes `onnxruntime` required by `rembg` execution in containers.
 - Separation of API and heavy AI execution
 - S3-compatible storage via MinIO
 - Dependency-aware readiness endpoint
@@ -365,6 +367,7 @@ Defined in `.env.example`:
 - Verify Redis is reachable from worker.
 - Confirm queue name matches (`bg_removal_jobs`).
 - Check worker logs for `rembg`/dependency errors.
+- If you see `ModuleNotFoundError: onnxruntime`, rebuild the worker image after pulling latest code.
 
 ### Readiness endpoint failing
 - Inspect `/health/ready` response object to identify failed dependency.
